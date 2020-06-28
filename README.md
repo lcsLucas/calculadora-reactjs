@@ -2,6 +2,8 @@
 
     What's up, dude!? Cansado de utilizar aquelas calculadoras sem graça do dia-a-dia? Que tal experimentar uma calculadora underground feita em ReactJs, com um relógio e várias outras funcionalidades inclusas, além de um layout moderno com tema noturdo incluido kkkk. Esse projeto foi realizado através do bootstrap Create React App (https://github.com/facebook/create-react-app), e é mais um dos meus projetos de estudo utilizando ReactJs. Aproveite, qualquer dúvida estou à disposição.
 
+    ![alt text](https://raw.githubusercontent.com/lcsLucas/calculadora-reactjs/master/public/img/demonstracao.gif)
+
 ## Scripts do projeto
 
 ### `npm start`
