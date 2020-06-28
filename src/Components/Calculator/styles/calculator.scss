@@ -1,0 +1,12 @@
+.calculadora {
+  background: #fff;
+  width: 100%;
+  max-width: 340px;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2), 0 0 0 20px rgba(0, 0, 0, 0.01);
+
+  &.night {
+    background: #282f3b;
+    color: #fff;
+  }
+}

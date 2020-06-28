@@ -1,0 +1,64 @@
+.button {
+  display: block;
+  width: 85px;
+  height: 85px;
+  background: #fff;
+  outline: none;
+  box-shadow: none;
+  border: 0.1px solid #f3f3f3;
+  border-right: none;
+  border-top: none;
+  color: #777;
+  font-size: 1.7rem;
+  transition: background-color 0.1s;
+  cursor: pointer;
+
+  &.operator {
+    background: #fbfbfb;
+  }
+
+  &.zero {
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  &.descr {
+    font-size: 1.2rem;
+  }
+
+  .night & {
+    background: #303946;
+    border-color: #666;
+    color: #bbb;
+
+    &.operator {
+      background: #414853;
+    }
+  }
+
+  &.equal {
+    background: #00c851;
+    color: #fff;
+    border-bottom-right-radius: 1.5rem;
+
+    .night & {
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #007e33 !important;
+    }
+  }
+
+  &:hover {
+    background: #f4f4f4;
+    border-color: #e6e6e6;
+
+    .night & {
+      border-color: #666;
+      background: #243441;
+      color: #fff;
+      text-shadow: 0 0 20px #fff;
+    }
+  }
+}

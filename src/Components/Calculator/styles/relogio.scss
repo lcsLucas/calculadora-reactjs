@@ -1,0 +1,19 @@
+.relogio {
+  font-weight: 700;
+
+  span {
+    animation: pisca 2s infinite;
+  }
+}
+
+@keyframes pisca {
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+}

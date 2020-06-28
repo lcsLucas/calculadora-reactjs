@@ -1,0 +1,24 @@
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  background: #fafafa;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+
+  .icons-status {
+    svg {
+      margin-left: 0.3rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .night & {
+    background: #282f3b;
+    color: #FFF;
+  }
+}

@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem 0;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.1s;
+  }
+
+  .toggle-night {
+    font-size: 1.5rem;
+    background: #eeeeee;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #00c851;
+      color: #fff;
+    }
+  }
+
+  .btn-options {
+    font-size: 1.2rem;
+    color: #999;
+    justify-content: flex-end;
+
+    &:hover {
+      color: #00c851;
+    }
+
+    .night & {
+      color: #999;
+    }
+  }
+}
