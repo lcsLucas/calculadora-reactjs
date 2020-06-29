@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import './styles/display.scss';
+import "./styles/display.scss";
 
-function Display() {
+class Display extends React.Component {
+  render() {
     return (
-        <div className="display">
-            <div className="history"></div>
-            <div className="result">0</div>
-        </div>
-    )
+      <div className="display">
+        <div className="history">10 + 10</div>
+        <div className="result">{this.props.value}</div>
+      </div>
+    );
+  }
 }
 
 export default Display;

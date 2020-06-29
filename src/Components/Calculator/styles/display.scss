@@ -2,17 +2,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0 0.8rem 0.2rem;
+
+  .history {
+    text-align: right;
+    color: #999;
+
+    .night & {
+      color: #fff;
+    }
+  }
 
   .result {
     font-size: 4rem;
     font-weight: 600;
     text-align: right;
-    padding: 0 0.8rem 0.2rem;
     color: #555;
-
     .night & {
-      color: #FFF;
+      color: #fff;
     }
-
   }
 }

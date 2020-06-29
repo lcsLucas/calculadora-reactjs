@@ -2,6 +2,7 @@ import React from "react";
 
 import "./styles/header.scss";
 import { WiDaySunny } from "react-icons/wi";
+import { WiMoonAltWaxingCrescent3 } from "react-icons/wi";
 import { FaEllipsisH } from "react-icons/fa";
 
 class Header extends React.Component {
@@ -22,7 +23,8 @@ class Header extends React.Component {
           className="toggle-night"
           onClick={this.clickHandler}
         >
-          <WiDaySunny />
+          { this.props.getToggleChild() ? <WiDaySunny /> : <WiMoonAltWaxingCrescent3 /> }
+          
         </button>
         <button type="button" className="btn-options">
           <FaEllipsisH />
@@ -31,20 +33,5 @@ class Header extends React.Component {
     );
   }
 }
-
-/*
-function Header() {
-  return (
-    <div className="header">
-      <button type="button" className="toggle-night" onClick={teste}>
-        <WiDaySunny />
-      </button>
-      <button type="button" className="btn-options">
-        <FaEllipsisH />
-      </button>
-    </div>
-  );
-}
-*/
 
 export default Header;
