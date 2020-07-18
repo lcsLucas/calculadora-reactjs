@@ -14,10 +14,13 @@
   }
 
   .result {
+    border: none;
+    outline: none;
     font-size: 4rem;
     font-weight: 600;
     text-align: right;
     color: #555;
+    background: #FFF;
     .night & {
       color: #fff;
     }

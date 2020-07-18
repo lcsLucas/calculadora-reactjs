@@ -6,8 +6,8 @@ class Display extends React.Component {
   render() {
     return (
       <div className="display">
-        <div className="history">10 + 10</div>
-        <div className="result">{this.props.value}</div>
+        <div className="history">{ this.props.history.map(h => h.value).join("") }</div>
+        <input disabled className="result" value={this.props.value} />
       </div>
     );
   }
