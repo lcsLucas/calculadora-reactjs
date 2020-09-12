@@ -7,6 +7,11 @@
   .history {
     text-align: right;
     color: #999;
+    //letter-spacing: 0.35rem;
+
+    span {
+        margin-left: .4rem;
+    }
 
     .night & {
       color: #fff;
@@ -20,8 +25,10 @@
     font-weight: 600;
     text-align: right;
     color: #555;
-    background: #FFF;
+    background: #fff;
+
     .night & {
+      background: #282f3b;
       color: #fff;
     }
   }
