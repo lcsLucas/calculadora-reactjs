@@ -1,46 +1,71 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.8rem 0;
-
-  button {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 2rem;
-    width: 2rem;
-    background: none;
-    outline: none;
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: background-color 0.1s;
-  }
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem 0;
 
-  .toggle-night {
-    font-size: 1.5rem;
-    background: #eeeeee;
-    border-radius: 50%;
-
-    &:hover {
-      background-color: #00c851;
-      color: #fff;
-    }
-  }
-
-  .btn-options {
-    font-size: 1.2rem;
-    color: #999;
-    justify-content: flex-end;
-
-    &:hover {
-      color: #00c851;
+    .toggle-night,
+    .btn-options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+        width: 2rem;
+        background: none;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.1s;
     }
 
-    .night & {
-      color: #999;
+    .toggle-night {
+        font-size: 1.5rem;
+        background: #eeeeee;
+        border-radius: 50%;
+
+        &:hover {
+            background-color: #00c851;
+            color: #fff;
+        }
     }
-  }
+
+    .btn-options {
+        font-size: 1.2rem;
+        color: #999 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        justify-content: flex-end;
+
+        &:hover {
+            color: #00c851 !important;
+        }
+
+        .night & {
+            color: #999 !important;
+        }
+    }
+
+    .dropdown {
+        margin-left: 0.15rem;
+
+        .dropdown-menu {
+            margin-top: 0;
+        }
+
+        .dropdown-item {
+            padding: 0.3rem .8rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            svg {
+              margin-right: .35rem;
+              color: darken(#00c851, 8%);
+            }
+
+        }
+    }
 }

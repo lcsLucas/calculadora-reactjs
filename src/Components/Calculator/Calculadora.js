@@ -106,7 +106,7 @@ class Calculator extends React.Component {
           (state) => ({
             queueCalc: state.queueCalc.concat({
               type: "number",
-              value: parseFloat(state.resultValue.replace(",", ".")),
+              value: parseFloat(("" + state.resultValue).replace(",", ".")),
             }),
           }),
           () => {
@@ -122,11 +122,54 @@ class Calculator extends React.Component {
           }
         );
       }
-    } else if (e.type === "del") {
+    } else if (e.type === "ac") {
       this.setState({
         resultValue: 0,
         queueCalc: []
       });
+    } else if (e.type === "porc") {
+
+    } else if (e.type === "del") {
+
+      this.setState((state) => {
+        let resultDisplay = state.resultValue
+
+        if (resultDisplay)
+          resultDisplay = resultDisplay.slice(0, -1)
+
+        if (!resultDisplay) resultDisplay = 0;
+
+        return {
+          resultValue: resultDisplay
+        }
+      })
+
+    } else if (e.type === "abs") {
+
+      if (this.state.resultValue) {
+        let valueDisplay = "" + this.state.resultValue
+
+        if (valueDisplay.indexOf("-") === 0)
+          valueDisplay = valueDisplay.slice(1);
+        else
+          valueDisplay = "-" + valueDisplay
+
+        this.setState((state) => {
+          let queueTemp = state.queueCalc
+
+          if (state.lastDigit.type !== "number") {
+            queueTemp = []
+          }
+
+          return {
+            resultValue: valueDisplay,
+            queueCalc: queueTemp
+          }
+        })
+
+      }
+
+
     } else if (e.type === "decimal") {
       this.setState((state) => {
         let checkDec = ("" + state.resultValue).indexOf(",")

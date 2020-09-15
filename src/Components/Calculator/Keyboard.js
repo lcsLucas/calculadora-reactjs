@@ -16,6 +16,9 @@ class Button extends React.Component {
         const retorno = { value: e.target.innerText };
 
         if (valueClass.contains("number")) retorno["type"] = "number";
+        else if (valueClass.contains("abs")) retorno["type"] = "abs";
+        else if (valueClass.contains("ac")) retorno["type"] = "ac";
+        else if (valueClass.contains("porc")) retorno["type"] = "porc";
         else if (valueClass.contains("operator")) retorno["type"] = "operator";
         else if (valueClass.contains("equal")) retorno["type"] = "equal";
         else if (valueClass.contains("del")) retorno["type"] = "del";
@@ -53,19 +56,19 @@ class Keyboard extends React.Component {
                 <Button
                     handlerClickButton={this.handlerClickKeyboard}
                     type="button"
-                    class="button operator descr"
+                    class="button operator descr ac"
                     value="AC"
                 />
                 <Button
                     handlerClickButton={this.handlerClickKeyboard}
                     type="button"
-                    class="button operator"
+                    class="button operator abs"
                     value="+/-"
                 />
                 <Button
                     handlerClickButton={this.handlerClickKeyboard}
                     type="button"
-                    class="button operator"
+                    class="button operator porc"
                     value="%"
                 />
                 <Button
