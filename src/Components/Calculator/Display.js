@@ -12,7 +12,7 @@ class Display extends React.Component {
             (acumulador, h, i) =>
               !!acumulador[acumulador.length - 1] && acumulador[acumulador.length - 1] === "=" ? [h.value] : acumulador.concat(h.value),
             []
-          ).map ((v, i) => <span key={i}>{v}</span>)}
+          ).map ((v, i) => <span key={i}>{(v+"").replace(".", ",")}</span>)}
         </div>
         <input disabled className="result" value={this.props.value} />
       </div>

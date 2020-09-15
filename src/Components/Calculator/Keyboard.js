@@ -19,6 +19,7 @@ class Button extends React.Component {
         else if (valueClass.contains("operator")) retorno["type"] = "operator";
         else if (valueClass.contains("equal")) retorno["type"] = "equal";
         else if (valueClass.contains("del")) retorno["type"] = "del";
+        else if (valueClass.contains("decimal")) retorno["type"] = "decimal";
 
         this.handlerClickButton(retorno);
     }
@@ -154,8 +155,8 @@ class Keyboard extends React.Component {
                 <Button
                     handlerClickButton={this.handlerClickKeyboard}
                     type="button"
-                    class="button"
-                    value="."
+                    class="button decimal"
+                    value=","
                 />
                 <Button
                     handlerClickButton={this.handlerClickKeyboard}

@@ -39,42 +39,37 @@ class Calculator extends React.Component {
       console.log("equal");
     } else {
       if (this.state.queueCalc.length > 2) {
-        console.log(this.state.queueCalc);
-        for (let i = 2; i < this.state.queueCalc.length - 1; i++) {
+
+        for (let i = 0; i < this.state.queueCalc.length - 1; i++) {
+          let operator = '+';
+          let number = this.state.queueCalc[i].value;
+
           if (i % 2 !== 0) continue;
 
-          let number1 = this.state.queueCalc[i - 2].value,
-            number2 = this.state.queueCalc[i].value;
-
-          // arrumar esse calculo
-          // ideia => colocar na queue o "=" e acrescentar o "total", fazer as operações apartir do ultimo "=" na queue
+          if (i !== 0)
+            operator = this.state.queueCalc[i - 1].value;
 
           switch (operator) {
             case "+":
-              total += number1 + number2;
+              total += number;
               break;
             case "-":
-              total += number1 - number2;
+              total -= number;
               break;
             case "x":
-              total += number1 * number2;
+              total *= number;
               break;
             case "/":
-              total += number1 / number2;
+              total /= number;
               break;
           }
 
           this.setState({
-            resultValue: total,
+            resultValue: ("" + total).replace(".", ","),
           });
 
-          /*
-          this.setState((state) => ({
-            resultValue: total,
-            queueCalc: state.queueCalc.concat({ type: "total", value: total }),
-          }));
-          */
         }
+
       }
     }
   }
@@ -83,15 +78,12 @@ class Calculator extends React.Component {
     if (e.type === "number") {
       let flagInsert = true;
 
-      if (this.state.lastDigit && this.state.lastDigit.type !== "number")
+      if (this.state.lastDigit && this.state.lastDigit.type !== "number" && this.state.lastDigit.type !== "decimal")
         flagInsert = false;
 
       this.setState((state) => ({
         queueCalc: this.state.lastDigit.type === "equal" ? [] : state.queueCalc,
-        resultValue:
-          (parseInt(state.resultValue) && flagInsert ? state.resultValue : "") +
-          "" +
-          parseInt(e.value),
+        resultValue: (state.resultValue && flagInsert ? state.resultValue : "") + parseFloat(e.value),
       }));
     } else if (e.type === "equal") {
       if (
@@ -114,7 +106,7 @@ class Calculator extends React.Component {
           (state) => ({
             queueCalc: state.queueCalc.concat({
               type: "number",
-              value: parseInt(state.resultValue),
+              value: parseFloat(state.resultValue.replace(",", ".")),
             }),
           }),
           () => {
@@ -133,6 +125,25 @@ class Calculator extends React.Component {
     } else if (e.type === "del") {
       this.setState({
         resultValue: 0,
+        queueCalc: []
+      });
+    } else if (e.type === "decimal") {
+      this.setState((state) => {
+        let checkDec = ("" + state.resultValue).indexOf(",")
+        let tempQueue = {
+          resultValue: (state.lastDigit['type'] === 'number' ? state.resultValue : '0') + ((checkDec < 0) ? ',' : '')
+        };
+
+        if (state.lastDigit['type'] === 'equal')
+          tempQueue.queueCalc = state.queueCalc.concat({
+            type: "number",
+            value: state.resultValue
+          }, {
+            type: "operator",
+            value: "+"
+          });
+
+        return tempQueue
       });
     } else if (e.type === "operator") {
       let flagInsert = true;
@@ -147,7 +158,7 @@ class Calculator extends React.Component {
           (state) => ({
             queueCalc: state.queueCalc.concat({
               type: "number",
-              value: parseInt(state.resultValue),
+              value: parseFloat(("" + state.resultValue).replace(",", ".")),
             }),
           }),
           () => {
